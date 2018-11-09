@@ -1,5 +1,5 @@
 [hr]
-[center][color=red][size=16pt][b]SPORTSNET.CA VIDEO BBCODE v1.1[/b][/size][/color]
+[center][color=red][size=16pt][b]SPORTSNET.CA VIDEO BBCODE v1.2[/b][/size][/color]
 [url=http://www.simplemachines.org/community/index.php?action=profile;u=253913][b]By Dougiefresh[/b][/url] -> [url=http://custom.simplemachines.org/mods/index.php?mod=4058]Link to Mod[/url]
 [/center]
 [hr]
@@ -12,7 +12,7 @@ The two BBCodes takes these forms:
 [sportsnet]{sportsnet video URL}[/sportsnet]
 [sportsnet width=x height=x]{sportsnet video URL}[/sportsnet]
 [/code]
-where [b]{sportsnet video URL}[/b] is the sportsnet video URL and the [b]width[/b] and [b]height[/b] parameters being optional.
+where [b]{sportsnet video URL}[/b] is the sportsnet video URL and the [b]width[/b] and [b]height[/b] parameters being optional.  If the width and height aren't specified, the video is displayed at 100% of the display post.  Please note that width and height specify the maximum size that the video may take up on the screen.
 
 [color=blue][b][size=12pt][u]Admin Settings[/u][/size][/b][/color]
 There are no admin settings to this mod.  To disable, you must uninstall this mod.

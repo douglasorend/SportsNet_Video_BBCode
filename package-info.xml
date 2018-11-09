@@ -5,19 +5,21 @@
 	<id>Dougiefresh:SportsNet</id>
 	<name>SportsNet Video BBCode</name>
 	<type>modification</type>
-	<version>1.1</version>
+	<version>1.2</version>
 
 	<install for="2.0 - 2.0.99">
 		<readme parsebbc="true">readme.txt</readme>
 		<code>add_remove_hooks.php</code>
 		<modification>install.xml</modification>
 		<require-file name="Subs-BBCode-SportsNet.php" destination="$sourcedir" />
+		<require-file name="BBCode-SportsNet.css" destination="$themedir/css" />
 		<require-file name="sportsnet.gif" destination="$imagesdir/bbc" />
 	</install>
 	<uninstall for="2.0 - 2.0.99">
 		<code>add_remove_hooks.php</code>
 		<modification reverse="true">install.xml</modification>
 		<remove-file name="$sourcedir/Subs-BBCode-SportsNet.php" />		
+		<remove-file name="$themedir/css/BBCode-SportsNet.css" />
 		<remove-file name="$imagesdir/bbc/sportsnet.gif" />
 	</uninstall>
 
@@ -26,12 +28,14 @@
 		<code>add_remove_hooks.php</code>
 		<modification>install.xml</modification>
 		<require-file name="Subs-BBCode-SportsNet.php" destination="$sourcedir" />
+		<require-file name="BBCode-SportsNet.css" destination="$themedir/css" />
 		<require-file name="sportsnet.png" destination="$imagesdir/bbc" />
 	</install>
 	<uninstall for="2.1 Beta 1">
 		<code>add_remove_hooks.php</code>
 		<modification reverse="true">install.xml</modification>
 		<remove-file name="$sourcedir/Subs-BBCode-SportsNet.php" />		
+		<remove-file name="$themedir/css/BBCode-SportsNet.css" />
 		<remove-file name="$imagesdir/bbc/sportsnet.png" />
 	</uninstall>
 </package-info>

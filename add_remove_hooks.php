@@ -21,6 +21,7 @@ if (SMF == 'SSI')
 // Define the hooks
 $hook_functions = array(
 	'integrate_pre_include' => '$sourcedir/Subs-BBCode-SportsNet.php',
+	'integrate_load_theme' => 'BBCode_SportsNet_Theme',
 	'integrate_bbc_codes' => 'BBCode_SportsNet',
 	'integrate_bbc_buttons' => 'BBCode_SportsNet_Button',
 );

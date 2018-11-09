@@ -1,3 +1,9 @@
+v1.2 - July 18th, 2015
+o Added responsive video display elements to this mod.
+o Fixed width and height parameters so that they work correctly as expected.
+o When specifying width and height parameters, they are now treated as maximum display size.
+o Changed default width and height from 640x400 to 100% of post display area.
+
 v1.1 - July 8th, 2015
 o Made sure URLs were trimmed of spaces and began with either "http://" or "https://".
 

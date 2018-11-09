@@ -12,6 +12,13 @@
 if (!defined('SMF')) 
 	die('Hacking attempt...');
 
+function BBCode_SportsNet_Theme()
+{
+	global $context, $settings;
+	$context['html_headers'] .= '
+	<link rel="stylesheet" type="text/css" href="' . $settings['default_theme_url'] . '/css/BBCode-SportsNet.css" />';
+}
+
 function BBCode_SportsNet(&$bbc)
 {
 	// Format: [sportsnet width=x height=x]{video URL}[/sportsnet]
@@ -19,8 +26,8 @@ function BBCode_SportsNet(&$bbc)
 		'tag' => 'sportsnet',
 		'type' => 'unparsed_content',
 		'parameters' => array(
-			'width' => array('value' => ' width="$1"', 'match' => '(\d+)'),
-			'height' => array('value' => ' height="$1"', 'match' => '(\d+)'),
+			'width' => array('match' => '(\d+)'),
+			'height' => array('match' => '(\d+)'),
 		),
 		'validate' => 'BBCode_SportsNet_Validate',
 		'content' => '{width}|{height}',
@@ -32,7 +39,7 @@ function BBCode_SportsNet(&$bbc)
 		'tag' => 'sportsnet',
 		'type' => 'unparsed_content',
 		'validate' => 'BBCode_SportsNet_Validate',
-		'content' => '640|400',
+		'content' => '0|0',
 		'disabled_content' => '$1',
 	);
 }
@@ -67,7 +74,7 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 		$results = (isset($codes[1]) ? $codes[1] : '');
 		cache_put_data('sportsnet_' . $md5, $results, 86400);
 	}
-	$tag['content'] = '<iframe class="youtube-player" type="text/html" width="' . $width .'" height="' . $height .'" src="' . $results .'" allowfullscreen frameborder="0"></iframe>';
+	$tag['content'] = '<div' . ((empty($width) && empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="youtube-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="0"></iframe></div></div>';
 }
 
 ?>
