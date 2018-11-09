@@ -1,3 +1,6 @@
+v1.6 - October 3rd, 2015
+o SMF 2.1: Added ability to auto-embed SportsNet URLs to the mod.
+
 v1.5 - October 2nd, 2015
 o Modified validation function to check to make sure URL is actually a NHL video URL.
 o Added "Invalid SportsNet URL" message for use with invalid SportsNet URLs (duh)....
