@@ -12,20 +12,6 @@
 if (!defined('SMF')) 
 	die('Hacking attempt...');
 
-function BBCode_SportsNet_Settings(&$config_vars)
-{
-	$config_vars[] = array('int', 'sportsnet_default_width');
-	$config_vars[] = array('int', 'sportsnet_default_height');
-}
-
-function BBCode_SportsNet_Theme()
-{
-	global $context, $settings;
-	$context['html_headers'] .= '
-	<link rel="stylesheet" type="text/css" href="' . $settings['default_theme_url'] . '/css/BBCode-SportsNet.css" />';
-	$context['allowed_html_tags'][] = '<iframe>';
-}
-
 function BBCode_SportsNet(&$bbc)
 {
 	// Format: [sportsnet width=x height=x]{video URL}[/sportsnet]
@@ -65,10 +51,10 @@ function BBCode_SportsNet_Button(&$buttons)
 
 function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 {
-	global $context, $modSettings;
+	global $context, $modSettings, $txt;
 	
 	if (empty($data))
-		return ($tag['content'] = '');
+		return ($tag['content'] = $txt['nhl_invalid']);
 	list($width, $height, $frameborder) = explode('|', $tag['content']);
 	if (empty($width) && !empty($modSettings['sportsnet_default_width']))
 		$width = $modSettings['sportsnet_default_width'];
@@ -78,6 +64,8 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 	if (strpos($data, 'http://') !== 0 && strpos($data, 'https://') !== 0)
 		$data = 'http://' . $data;
 	$md5 = md5($data);
+	if (!preg_match('#(http|https):\/\/www\.sportsnet\.ca/(.+?)/(.+?)/\?(|row=(\d+)&amp;)row_ids=(\d+)#', $data))
+		return ($tag['content'] = $txt['nhl_invalid']);
 	if (($results = cache_get_data('sportsnet_' . $md5, 86400)) == null)
 	{
 		$content = file_get_contents($data);
@@ -87,6 +75,28 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 		cache_put_data('sportsnet_' . $md5, $results, 86400);
 	}
 	$tag['content'] = '<div' . ((empty($width) || empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="sportsnet-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="' . $frameborder . '"></iframe></div></div>';
+}
+
+function BBCode_SportsNet_Settings(&$config_vars)
+{
+	$config_vars[] = array('int', 'sportsnet_default_width');
+	$config_vars[] = array('int', 'sportsnet_default_height');
+}
+
+function BBCode_SportsNet_Theme()
+{
+	global $context, $settings;
+	$context['html_headers'] .= '
+	<link rel="stylesheet" type="text/css" href="' . $settings['default_theme_url'] . '/css/BBCode-SportsNet.css" />';
+	$context['allowed_html_tags'][] = '<iframe>';
+}
+
+function BBCode_SportsNet_Embed(&$message)
+{
+	$pattern = '#(|\[sportsnet(|.+?)\](([<br />]+)?))(http|https):\/\/www\.sportsnet\.ca/(.+?)/(.+?)/\?row=(\d+)&amp;row_ids=(\d+)(([<br />]+)?)(\[/sportsnet\]|)#i';
+	$message = preg_replace($pattern, '[sportsnet$2]$5://www.sportsnet.ca/$6/$7/?row_ids=$9[/sportsnet]', $message);
+	$pattern = '#\[code(|(.+?))\](|.+?)\[sportsnet(|.+?)\](.+?)\[/sportsnet\](|.+?)\[/code\]#i';
+	$message = preg_replace($pattern, '[code$1]$3$5$6[/code]', $message);
 }
 
 ?>

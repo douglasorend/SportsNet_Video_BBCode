@@ -1,3 +1,10 @@
+v1.5 - October 2nd, 2015
+o Modified validation function to check to make sure URL is actually a NHL video URL.
+o Added "Invalid SportsNet URL" message for use with invalid SportsNet URLs (duh)....
+o Added ability to auto-embed SportsNet URLs to the mod.
+o Added code to remove auto-embedded NHL videos from within code tags.
+o Fixed language strings so that they appear in the Modifications Settings area.
+
 v1.4 - August 12th, 2015
 o Added settings to allow admin to set default size of the SportsNet video.
 o Altered code to use new default size settings when width and/or height isn't specified.
