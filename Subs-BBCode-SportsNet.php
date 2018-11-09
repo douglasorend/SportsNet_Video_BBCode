@@ -12,6 +12,12 @@
 if (!defined('SMF')) 
 	die('Hacking attempt...');
 
+function BBCode_SportsNet_Settings(&$config_vars)
+{
+	$config_vars[] = array('int', 'sportsnet_default_width');
+	$config_vars[] = array('int', 'sportsnet_default_height');
+}
+
 function BBCode_SportsNet_Theme()
 {
 	global $context, $settings;
@@ -28,10 +34,11 @@ function BBCode_SportsNet(&$bbc)
 		'type' => 'unparsed_content',
 		'parameters' => array(
 			'width' => array('match' => '(\d+)'),
-			'height' => array('match' => '(\d+)'),
+			'height' => array('optional' => true, 'match' => '(\d+)'),
+			'frameborder' => array('optional' => true, 'match' => '(\d+)'),
 		),
 		'validate' => 'BBCode_SportsNet_Validate',
-		'content' => '{width}|{height}',
+		'content' => '{width}|{height}|{frameborder}',
 		'disabled_content' => '$1',
 	);
 
@@ -40,7 +47,7 @@ function BBCode_SportsNet(&$bbc)
 		'tag' => 'sportsnet',
 		'type' => 'unparsed_content',
 		'validate' => 'BBCode_SportsNet_Validate',
-		'content' => '0|0',
+		'content' => '0|0|0',
 		'disabled_content' => '$1',
 	);
 }
@@ -58,11 +65,15 @@ function BBCode_SportsNet_Button(&$buttons)
 
 function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 {
-	global $context;
+	global $context, $modSettings;
 	
-	list($width, $height) = explode('|', $tag['content']);
 	if (empty($data))
 		return ($tag['content'] = '');
+	list($width, $height, $frameborder) = explode('|', $tag['content']);
+	if (empty($width) && !empty($modSettings['sportsnet_default_width']))
+		$width = $modSettings['sportsnet_default_width'];
+	if (empty($height) && !empty($modSettings['sportsnet_default_height']))
+		$height = $modSettings['sportsnet_default_height'];
 	$data = strtr(trim($data), array('<br />' => ''));
 	if (strpos($data, 'http://') !== 0 && strpos($data, 'https://') !== 0)
 		$data = 'http://' . $data;
@@ -75,7 +86,7 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 		$results = (isset($codes[1]) ? $codes[1] : '');
 		cache_put_data('sportsnet_' . $md5, $results, 86400);
 	}
-	$tag['content'] = '<div' . ((empty($width) && empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="youtube-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="0"></iframe></div></div>';
+	$tag['content'] = '<div' . ((empty($width) || empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="sportsnet-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="' . $frameborder . '"></iframe></div></div>';
 }
 
 ?>

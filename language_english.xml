@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+<id>Dougiefresh:SportsNet</id>
+<name>Embed SportsNet BBCode</name>
+<version>1.4</version>
+	
+<file name="$languagedir/ManageSettings.english.php">
+	<operation>
+		<search position="end" />
+		<add><![CDATA[
+$txt['nhl_default_width'] = 'Default width used for SportsNet bbcode when not specified<div class="smalltext">Use <strong>0</strong> to use responsive video display.  Must set both.</div>';
+$txt['nhl_default_height'] = 'Default height used for SportsNet bbcode when not specified<div class="smalltext">Use <strong>0</strong> to use responsive video display.  Must set both.</div>';
+]]></add>
+	</operation>
+</file>
+</modification>

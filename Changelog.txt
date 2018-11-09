@@ -1,3 +1,8 @@
+v1.4 - August 12th, 2015
+o Added settings to allow admin to set default size of the SportsNet video.
+o Altered code to use new default size settings when width and/or height isn't specified.
+o Added "frameborder" parameter to the bbcode.
+
 v1.3 - August 8th, 2015
 o Removed support for SMF 2.1 Beta 1
 o Added support for SMF 2.1 Beta 2

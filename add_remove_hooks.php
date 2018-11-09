@@ -24,6 +24,7 @@ $hook_functions = array(
 	'integrate_load_theme' => 'BBCode_SportsNet_Theme',
 	'integrate_bbc_codes' => 'BBCode_SportsNet',
 	'integrate_bbc_buttons' => 'BBCode_SportsNet_Button',
+	'integrate_general_mod_settings' => 'BBCode_SportsNet_Settings',
 );
 
 // Adding or removing them?
