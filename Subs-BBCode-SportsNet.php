@@ -95,7 +95,7 @@ function BBCode_SportsNet_Theme()
 
 function BBCode_Sportsnet_Embed(&$message, &$smileys, &$cache_id, &$parse_tags)
 {
-	$pattern = '~(?<=[\s>\.(;\'"]|^)(?:https?\:\/\/)?(?:www\.)?sportsnet\.ca/?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*/\?row=(\d+)&amp;row_ids?=(\d+)+\??[/\w\-_\~%@\?;=#}\\\\]?~';
+	$pattern = '~(?<=[\s>\.(;\'"]|^)(https?\:\/\/)(?:www\.)?sportsnet\.ca/?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*/\?row=(\d+)&amp;row_ids?=(\d+)+\??[/\w\-_\~%@\?;=#}\\\\]?~';
 	$message = preg_replace($pattern, '[sportsnet]$0[/sportsnet]', $message);
 }
 

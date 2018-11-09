@@ -1,3 +1,6 @@
+v1.8 - December 23rd, 2015
+o Fixed auto-embed code (again) so that URLs are embedded correctly.
+
 v1.7 - November 30th, 2015
 o Corrected auto-embed code so that URLs not surrounded by tags are converted to SportsNet tags.
 o Modified existing auto-embed capability as hook for SMF 2.1
