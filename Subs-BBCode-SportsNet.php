@@ -17,6 +17,7 @@ function BBCode_SportsNet_Theme()
 	global $context, $settings;
 	$context['html_headers'] .= '
 	<link rel="stylesheet" type="text/css" href="' . $settings['default_theme_url'] . '/css/BBCode-SportsNet.css" />';
+	$context['allowed_html_tags'][] = '<iframe>';
 }
 
 function BBCode_SportsNet(&$bbc)
