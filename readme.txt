@@ -1,11 +1,11 @@
 [hr]
-[center][color=red][size=16pt][b]SPORTSNET VIDEO BBCODE v1.0[/b][/size][/color]
+[center][color=red][size=16pt][b]SPORTSNET.CA VIDEO BBCODE v1.1[/b][/size][/color]
 [url=http://www.simplemachines.org/community/index.php?action=profile;u=253913][b]By Dougiefresh[/b][/url] -> [url=http://custom.simplemachines.org/mods/index.php?mod=4058]Link to Mod[/url]
 [/center]
 [hr]
 
 [color=blue][b][size=12pt][u]Introduction[/u][/size][/b][/color]
-This modification adds a BBCodes to watch sportsnet videos.
+This modification adds a BBCodes to watch videos from the SportsNet.ca website.
 
 The two BBCodes takes these forms:
 [code]

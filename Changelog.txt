@@ -1,0 +1,5 @@
+v1.1 - July 8th, 2015
+o Made sure URLs were trimmed of spaces and began with either "http://" or "https://".
+
+v1.0 - May 17th, 2015
+o Initial Release to the Public
