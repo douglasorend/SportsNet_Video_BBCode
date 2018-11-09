@@ -3,9 +3,9 @@
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 <id>Dougiefresh:SportsNet</id>
 <name>Embed SportsNet BBCode</name>
-<version>1.11</version>
+<version>1.13</version>
 
-<file name="$languagedir/index.spanish_latin.php" error="skip">	
+<file name="$languagedir/index.spanish_latin.php" error="Skip">	
 	<operation>
 		<search position="end" />
 		<add><![CDATA[
@@ -17,7 +17,7 @@ $txt['sportsnet_cannot_get_video'] = '[ No se puede obtener el enlace de Twitter
 	</operation>
 </file>
 
-<file name="$languagedir/index.spanish_latin-utf8.php" error="skip">
+<file name="$languagedir/index.spanish_latin-utf8.php" error="Skip">
 	<operation>
 		<search position="end" />
 		<add><![CDATA[

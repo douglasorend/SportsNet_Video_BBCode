@@ -99,6 +99,8 @@ function BBCode_SportsNet_Theme()
 
 function BBCode_Sportsnet_Embed(&$message, &$smileys, &$cache_id, &$parse_tags)
 {
+	if ($message === false)
+		return;
 	$replace = (strpos($cache_id, 'sig') !== false ? '[url]$0[/url]' : '[sportsnet]$0[/sportsnet]');
 	$pattern = '~(?<=[\s>\.(;\'"]|^)(https?\:\/\/)(?:www\.)?sportsnet\.ca/?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*/\?row=(\d+)&amp;row_ids?=(\d+)+\??[/\w\-_\~%@\?;=#}\\\\]?~';
 	$message = preg_replace($pattern, $replace, $message);
