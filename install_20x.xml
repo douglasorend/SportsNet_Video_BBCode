@@ -3,7 +3,7 @@
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 <id>Dougiefresh:SportsNet</id>
 <name>SportsNet Video BBCode</name>
-<version>1.10</version>
+<version>1.11</version>
 
 <file name="$sourcedir/Post.php">
 	<operation>
@@ -16,6 +16,25 @@
 	</operation>
 </file>
 <file name="$sourcedir/Subs.php">
+	<operation>
+		<search position="after"><![CDATA[// The non-breaking-space looks a bit different each time.]]></search>
+		<add><![CDATA[// Embed SportsNet URLs in the SportsNet bbcode tags:
+	BBCode_SportsNet_Embed($message, $smileys, $cache_id, $parse_tags);
+
+	]]></add>
+	</operation>
+</file>
+<file name="$boarddir/mobiquo/include/Post.php" error="skip">
+	<operation>
+		<search position="replace"><![CDATA['<img>]]></search>
+		<add><![CDATA['<img><iframe>]]></add>
+	</operation>
+	<operation>
+		<search position="replace"><![CDATA['<img>]]></search>
+		<add><![CDATA['<img><iframe>]]></add>
+	</operation>
+</file>
+<file name="$boarddir/mobiquo/include/Subs.php" error="skip">
 	<operation>
 		<search position="after"><![CDATA[// The non-breaking-space looks a bit different each time.]]></search>
 		<add><![CDATA[// Embed SportsNet URLs in the SportsNet bbcode tags:

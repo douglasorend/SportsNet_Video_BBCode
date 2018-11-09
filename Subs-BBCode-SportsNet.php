@@ -78,7 +78,7 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 			cache_put_data('sportsnet_' . $md5, $results, 86400);
 	}
 	if (!empty($results))
-		$tag['content'] = '<div' . ((empty($width) || empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="sportsnet-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="' . $frameborder . '" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>';
+		$tag['content'] = '<div' . ((empty($width) || empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="sportsnet-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="' . $frameborder . '"></iframe></div></div>';
 	else
 		$tag['content'] = $txt['sportsnet_cannot_get_video'];
 }
