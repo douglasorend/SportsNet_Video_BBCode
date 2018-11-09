@@ -1,3 +1,6 @@
+v1.9 - March 7th, 2016
+o Modified auto-embed code so that SportsNet URLs in signature are embedded as [b][nobbc][url]{link}[/url][/nobbc][/b].
+
 v1.8 - December 23rd, 2015
 o Fixed auto-embed code (again) so that URLs are embedded correctly.
 

@@ -3,7 +3,7 @@
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 <id>Dougiefresh:SportsNet</id>
 <name>Embed SportsNet BBCode</name>
-<version>1.8</version>
+<version>1.9</version>
 	
 <file name="$languagedir/index.english.php">
 	<operation>
@@ -12,6 +12,7 @@
 $txt['sportsnet_default_width'] = 'Default width used for SportsNet bbcode when not specified<div class="smalltext">Use <strong>0</strong> to use responsive video display.  Must set both.</div>';
 $txt['sportsnet_default_height'] = 'Default height used for SportsNet bbcode when not specified<div class="smalltext">Use <strong>0</strong> to use responsive video display.  Must set both.</div>';
 $txt['sportsnet_invalid'] = '[ Invalid SportsNet URL ]';
+$txt['sportsnet_cannot_get_video'] = '[ Cannot Get SportsNet Twitter URL ]';
 ]]></add>
 	</operation>
 </file>

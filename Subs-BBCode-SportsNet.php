@@ -70,13 +70,17 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 		return ($tag['content'] = $txt['sportsnet_invalid']);
 	if (($results = cache_get_data('sportsnet_' . $md5, 86400)) == null)
 	{
-		$content = file_get_contents($data);
+		$content = @file_get_contents($data);
 		$pattern = '#meta name="twitter:player" content="(.+?)"#i' . ($context['utf8'] ? 'u' : '');
 		preg_match($pattern, $content, $codes);
 		$results = (isset($codes[1]) ? $codes[1] : '');
-		cache_put_data('sportsnet_' . $md5, $results, 86400);
+		if (!empty($results))
+			cache_put_data('sportsnet_' . $md5, $results, 86400);
 	}
-	$tag['content'] = '<div' . ((empty($width) || empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="sportsnet-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="' . $frameborder . '"></iframe></div></div>';
+	if (!empty($results))
+		$tag['content'] = '<div' . ((empty($width) || empty($height)) ? '' : ' style="max-width: ' . $width . 'px; max-height: ' . $height . 'px;"') . '><div class="sportsnet-wrapper"><iframe class="sportsnet-player" type="text/html" src="' . $results .'" allowfullscreen frameborder="' . $frameborder . '"></iframe></div></div>';
+	else
+		$tag['content'] = $txt['sportsnet_cannot_get_video'];
 }
 
 function BBCode_SportsNet_Settings(&$config_vars)
@@ -95,8 +99,11 @@ function BBCode_SportsNet_Theme()
 
 function BBCode_Sportsnet_Embed(&$message, &$smileys, &$cache_id, &$parse_tags)
 {
+	$replace = (strpos($cache_id, 'sig') !== false ? '[url]$0[/url]' : '[sportsnet]$0[/sportsnet]');
 	$pattern = '~(?<=[\s>\.(;\'"]|^)(https?\:\/\/)(?:www\.)?sportsnet\.ca/?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*/\?row=(\d+)&amp;row_ids?=(\d+)+\??[/\w\-_\~%@\?;=#}\\\\]?~';
-	$message = preg_replace($pattern, '[sportsnet]$0[/sportsnet]', $message);
+	$message = preg_replace($pattern, $replace, $message);
+	if (strpos($cache_id, 'sig') !== false)
+		$message = preg_replace('#\[sportsnet.*\](.*)\[\/sportsnet\]#i', '[url]$1[/url]', $message);
 }
 
 ?>

@@ -1,5 +1,5 @@
 [hr]
-[center][color=red][size=16pt][b]SPORTSNET.CA VIDEO BBCODE v1.8[/b][/size][/color]
+[center][color=red][size=16pt][b]SPORTSNET.CA VIDEO BBCODE v1.9[/b][/size][/color]
 [url=http://www.simplemachines.org/community/index.php?action=profile;u=253913][b]By Dougiefresh[/b][/url] -> [url=http://custom.simplemachines.org/mods/index.php?mod=4058]Link to Mod[/url]
 [/center]
 [hr]
@@ -24,7 +24,7 @@ This mod was tested on SMF 2.0.9, but should work on SMF 2.1 Beta 2, as well as 
 The changelog has been removed and can be seen at [url=http://www.xptsp.com/board/index.php?topic=519.msg790#msg790]XPtsp.com[/url].
 
 [color=blue][b][size=12pt][u]License[/u][/size][/b][/color]
-Copyright (c) 2015, Douglas Orend
+Copyright (c) 2015 - 2016, Douglas Orend
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
