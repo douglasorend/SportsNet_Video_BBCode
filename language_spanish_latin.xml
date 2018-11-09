@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+<id>Dougiefresh:SportsNet</id>
+<name>Embed SportsNet BBCode</name>
+<version>1.11</version>
+
+<file name="$languagedir/index.spanish_latin.php" error="skip">	
+	<operation>
+		<search position="end" />
+		<add><![CDATA[
+$txt['sportsnet_default_width'] = 'Ancho predeterminado utilizado para SportsNet bbcode cuando no se especifica<div class="smalltext">NOTA: Colocar <strong>0</strong> para usar una pantalla de video adaptativo. Debe establecer ambos.</div>';
+$txt['sportsnet_default_height'] = 'Altura predeterminada utilizada para SportsNet bbcode cuando no se especifica<div class="smalltext">NOTA: Colocar <strong>0</strong> para usar una pantalla de video adaptativo. Debe establecer ambos.</div>';
+$txt['sportsnet_invalid'] = '[ Enlace de SportsNet no v&aacute;lido ]';
+$txt['sportsnet_cannot_get_video'] = '[ No se puede obtener el enlace de Twitter de SportsNet ]';
+]]></add>
+	</operation>
+</file>
+
+<file name="$languagedir/index.spanish_latin-utf8.php" error="skip">
+	<operation>
+		<search position="end" />
+		<add><![CDATA[
+$txt['sportsnet_default_width'] = 'Ancho predeterminado utilizado para SportsNet bbcode cuando no se especifica<div class="smalltext">NOTA: Colocar <strong>0</strong> para usar una pantalla de video adaptativo. Debe establecer ambos.</div>';
+$txt['sportsnet_default_height'] = 'Altura predeterminada utilizada para SportsNet bbcode cuando no se especifica<div class="smalltext">NOTA: Colocar <strong>0</strong> para usar una pantalla de video adaptativo. Debe establecer ambos.</div>';
+$txt['sportsnet_invalid'] = '[ Enlace de SportsNet no válido ]';
+$txt['sportsnet_cannot_get_video'] = '[ No se puede obtener el enlace de Twitter de SportsNet ]';
+]]></add>
+	</operation>
+</file>
+</modification>
