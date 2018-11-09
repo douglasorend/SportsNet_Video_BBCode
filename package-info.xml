@@ -5,7 +5,7 @@
 	<id>Dougiefresh:SportsNet</id>
 	<name>SportsNet Video BBCode</name>
 	<type>modification</type>
-	<version>1.6</version>
+	<version>1.7</version>
 
 	<install for="2.0 - 2.0.99">
 		<readme parsebbc="true">readme.txt</readme>
@@ -28,7 +28,6 @@
 	<install for="2.1 Beta 2">
 		<readme parsebbc="true">readme.txt</readme>
 		<code>add_remove_hooks.php</code>
-		<modification>install_21x.xml</modification>
 		<modification>language_english.xml</modification>
 		<require-file name="Subs-BBCode-SportsNet.php" destination="$sourcedir" />
 		<require-file name="BBCode-SportsNet.css" destination="$themedir/css" />
@@ -36,7 +35,6 @@
 	</install>
 	<uninstall for="2.1 Beta 2">
 		<code>add_remove_hooks.php</code>
-		<modification reverse="true">install_21x.xml</modification>
 		<modification reverse="true">language_english.xml</modification>
 		<remove-file name="$sourcedir/Subs-BBCode-SportsNet.php" />		
 		<remove-file name="$themedir/css/BBCode-SportsNet.css" />

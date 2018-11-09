@@ -1,3 +1,8 @@
+v1.7 - November 30th, 2015
+o Corrected auto-embed code so that URLs not surrounded by tags are converted to SportsNet tags.
+o Modified existing auto-embed capability as hook for SMF 2.1
+o Fixed some validation issues with SportsNet.ca URLs.
+
 v1.6 - October 3rd, 2015
 o SMF 2.1: Added ability to auto-embed SportsNet URLs to the mod.
 

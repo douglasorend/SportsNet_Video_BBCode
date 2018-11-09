@@ -54,7 +54,7 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 	global $context, $modSettings, $txt;
 	
 	if (empty($data))
-		return ($tag['content'] = $txt['nhl_invalid']);
+		return ($tag['content'] = $txt['sportsnet_invalid']);
 	list($width, $height, $frameborder) = explode('|', $tag['content']);
 	if (empty($width) && !empty($modSettings['sportsnet_default_width']))
 		$width = $modSettings['sportsnet_default_width'];
@@ -64,8 +64,10 @@ function BBCode_SportsNet_Validate(&$tag, &$data, &$disabled)
 	if (strpos($data, 'http://') !== 0 && strpos($data, 'https://') !== 0)
 		$data = 'http://' . $data;
 	$md5 = md5($data);
-	if (!preg_match('#(http|https):\/\/www\.sportsnet\.ca/(.+?)/(.+?)/\?(|row=(\d+)&amp;)row_ids=(\d+)#', $data))
-		return ($tag['content'] = $txt['nhl_invalid']);
+	if (!preg_match('#(http|https):\/\/www\.sportsnet\.ca/#', $data))
+		return ($tag['content'] = $txt['sportsnet_invalid']);
+	if (!preg_match('#\?(|row=(\d+)&amp;)row_ids?=(\d+)#', $data))
+		return ($tag['content'] = $txt['sportsnet_invalid']);
 	if (($results = cache_get_data('sportsnet_' . $md5, 86400)) == null)
 	{
 		$content = file_get_contents($data);
@@ -91,12 +93,10 @@ function BBCode_SportsNet_Theme()
 	$context['allowed_html_tags'][] = '<iframe>';
 }
 
-function BBCode_SportsNet_Embed(&$message)
+function BBCode_Sportsnet_Embed(&$message, &$smileys, &$cache_id, &$parse_tags)
 {
-	$pattern = '#(|\[sportsnet(|.+?)\](([<br />]+)?))(http|https):\/\/www\.sportsnet\.ca/(.+?)/(.+?)/\?row=(\d+)&amp;row_ids=(\d+)(([<br />]+)?)(\[/sportsnet\]|)#i';
-	$message = preg_replace($pattern, '[sportsnet$2]$5://www.sportsnet.ca/$6/$7/?row_ids=$9[/sportsnet]', $message);
-	$pattern = '#\[code(|(.+?))\](|.+?)\[sportsnet(|.+?)\](.+?)\[/sportsnet\](|.+?)\[/code\]#i';
-	$message = preg_replace($pattern, '[code$1]$3$5$6[/code]', $message);
+	$pattern = '~(?<=[\s>\.(;\'"]|^)(?:https?\:\/\/)?(?:www\.)?sportsnet\.ca/?(?:/[\w\-_\~%\.@!,\?&;=#(){}+:\'\\\\]*)*/\?row=(\d+)&amp;row_ids?=(\d+)+\??[/\w\-_\~%@\?;=#}\\\\]?~';
+	$message = preg_replace($pattern, '[sportsnet]$0[/sportsnet]', $message);
 }
 
 ?>
