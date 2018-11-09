@@ -1,32 +1,35 @@
-[hr]
-[center][color=red][size=16pt][b]SPORTSNET.CA VIDEO BBCODE v1.14[/b][/size][/color]
-[url=http://www.simplemachines.org/community/index.php?action=profile;u=253913][b]By Dougiefresh[/b][/url] -> [url=http://custom.simplemachines.org/mods/index.php?mod=4058]Link to Mod[/url]
-[/center]
-[hr]
+--------
 
-[color=blue][b][size=12pt][u]Introduction[/u][/size][/b][/color]
+# SPORTSNET.CA VIDEO BBCODE v1.14
+
+[**By Dougiefresh**](http://www.simplemachines.org/community/index.php?action=profile;u=253913) -> [Link to Mod](http://custom.simplemachines.org/mods/index.php?mod=4058)
+
+--------
+
+## Introduction
 This modification adds a BBCodes to watch videos from the SportsNet.ca website.
 
 The two BBCodes takes these forms:
-[code]
-[sportsnet]{sportsnet video URL}[/sportsnet]
-[sportsnet width=x height=x]{sportsnet video URL}[/sportsnet]
-[/code]
-where [b]{sportsnet video URL}[/b] is the sportsnet video URL and the [b]width[/b] and [b]height[/b] parameters being optional.  If the width and height aren't specified, the video is displayed at 100% of the display post.  Please note that width and height specify the maximum size that the video may take up on the screen.
+    
+    [sportsnet]{sportsnet video URL}[/sportsnet]
+    [sportsnet width=x height=x]{sportsnet video URL}[/sportsnet]
+    
+where **{sportsnet video URL}** is the sportsnet video URL and the **width** and **height** parameters being optional.  If the width and height aren't specified, the video is displayed at 100% of the display post.  Please note that width and height specify the maximum size that the video may take up on the screen.
 
-[color=blue][b][size=12pt][u]Admin Settings[/u][/size][/b][/color]
-The default width and height parameters can be specified in the [b]Admin[/b] -> [b]Configuration[/b] -> [b]Modification Settings[/b] area.
+## Admin Settings
+The default width and height parameters can be specified in the **Admin** -> **Configuration** -> **Modification Settings** area.
 
-[color=blue][b][size=12pt][u]Compatibility Notes[/u][/size][/b][/color]
+## Compatibility Notes
 This mod was tested on SMF 2.0.15, but should work on SMF 2.1 Beta 2, as well as SMF 2.0 and up.  SMF 1.x is not and will not be supported.
 
-This mod should be installed after [url=https://www.tapatalk.com/download_SimpleMachines.php]Tapatalk mod[/url], if you want to use it with Tapatalk.
+This mod should be installed after [Tapatalk mod](https://www.tapatalk.com/download_SimpleMachines.php), if you want to use it with Tapatalk.
 
-[color=blue][b][size=12pt][u]Changelog[/u][/size][/b][/color]
-The changelog can be viewed at [url=http://www.xptsp.com/board/free-modifications/sportsnet-video-bbcode/?tab=1]XPtsp.com[/url].
+## Changelog
+The changelog can be viewed at [XPtsp.com](http://www.xptsp.com/board/free-modifications/sportsnet-video-bbcode/?tab=1).
 
-[color=blue][b][size=12pt][u]License[/u][/size][/b][/color]
+## License
 Copyright (c) 2015 - 2018, Douglas Orend
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
